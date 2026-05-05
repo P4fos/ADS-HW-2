@@ -1,0 +1,23 @@
+dataset = [89, 57, 18, 36, 85, 91, 49, 10, 43, 73]
+def get_min_max(arr, low, high):
+    if low == high:
+        return arr[low], arr[low]
+        
+    if high == low + 1:
+        if arr[low] < arr[high]:
+            return arr[low], arr[high]
+        else:
+            return arr[high], arr[low]
+            
+    mid = (low + high) // 2
+    
+    left_min, left_max = get_min_max(arr, low, mid)
+    right_min, right_max = get_min_max(arr, mid + 1, high)
+    
+    total_min = min(left_min, right_min)
+    total_max = max(left_max, right_max)
+    
+    return total_min, total_max
+
+min_val, max_val = get_min_max(dataset, 0, len(dataset) - 1)
+print(f"B2 Range (Max - Min): {max_val} - {min_val} = {max_val - min_val}")

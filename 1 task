@@ -1,0 +1,14 @@
+dataset = [89, 57, 18, 36, 85, 91, 49, 10, 43, 73]
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        swapped = False
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        if not swapped:
+            break
+    return arr
+
+print(bubble_sort(dataset.copy()))

@@ -1,0 +1,16 @@
+
+dataset = [89, 57, 18, 36, 85, 91, 49, 10, 43, 73]
+def linear_search(arr, target):
+    comparisons = 0
+    
+    for i in range(len(arr)):
+        comparisons += 1
+        
+        if arr[i] == target:
+            return i, comparisons
+            
+    return -1, comparisons
+
+target_number = 91 
+index, count = linear_search(dataset, target_number)
+print(f"B3 Linear Search: Индекс = {index}, Сравнений = {count}")

@@ -1,0 +1,20 @@
+dataset = [89, 57, 18, 36, 85, 91, 49, 10, 43, 73]
+
+def hash_table_insert(arr):
+    table_size = 7
+    table = [None] * table_size
+    
+    for number in arr:
+        if None not in table:
+            break 
+            
+        index = number % table_size
+        
+        while table[index] is not None:
+            index = (index + 1) % table_size
+            
+        table[index] = number
+        
+    return table
+
+print("B1 Hashing:", hash_table_insert(dataset))
